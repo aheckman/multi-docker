@@ -9,15 +9,15 @@ script:
   - docker run -e CI=true aheckman/react_test npm test
 
 after_success:
-  - docker build -t aheckman/multi-client ./client
-  - docker build -t aheckman/multi-nginx ./nginx
-  - docker build -t aheckman/multi-server ./server
-  - docker build -t aheckman/multi-worker ./worker
+  - docker build -t caliali/multi-client ./client
+  - docker build -t caliali/multi-nginx ./nginx
+  - docker build -t caliali/multi-server ./server
+  - docker build -t caliali/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push aheckman/multi-client
-  - docker push aheckman/multi-nginx
-  - docker push aheckman/multi-server
-  - docker push aheckman/multi-worker
+  - docker push caliali/multi-client
+  - docker push caliali/multi-nginx
+  - docker push caliali/multi-server
+  - docker push caliali/multi-worker
 
 
 
